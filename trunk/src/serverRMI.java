@@ -16,8 +16,7 @@ public class serverRMI{
             iRMIImpl test=new iRMIImpl();
             interfaceRMI stub=(interfaceRMI) UnicastRemoteObject.exportObject
                     (test, 0);
-            LocateRegistry.createRegistry(1099);
-            Registry reg=LocateRegistry.getRegistry();
+            Registry reg=LocateRegistry.createRegistry(6000);
             reg.rebind("server", stub);
             System.out.println("Server is online....");
             while(stub.getCommand()==20);
