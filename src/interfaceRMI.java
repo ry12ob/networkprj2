@@ -8,8 +8,11 @@ import java.rmi.*;
  * @author James
  */
 public interface interfaceRMI extends Remote{
-    public int getCommand() throws RemoteException;
-    public String getResponse() throws RemoteException;
-    public void setCommand(int cin) throws RemoteException;
-    public void setResponse(String rin) throws RemoteException;
+    /*public String getDate();
+	 public String getuptime();
+	 public String getfree();
+	 public String getnetstat();
+	 public String getwho();
+	 public String getpsde();*/
+	 public String doCommand(int cin) throws RemoteException;
     }
