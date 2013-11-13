@@ -13,10 +13,11 @@ public class clientRMI{
     
     public static void main(String[] args){
         try{
-		  		String out="blah";
-            Registry reg=LocateRegistry.getRegistry("localhost");
+            String out="blah";
+            Registry reg=LocateRegistry.getRegistry("localhost",2000);
             stub=(interfaceRMI) reg.lookup("server");
-				out=stub.doCommand(1);
+            out=stub.doCommand(1);
+            System.out.println(out);
             }
         catch (Exception e){
             System.err.println("Client problem: "+e.toString());
