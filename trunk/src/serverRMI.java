@@ -12,14 +12,15 @@ import java.rmi.registry.LocateRegistry;
  */
 public class serverRMI{
     public static void main(String args[]){
+    String portnumber=args[0];
+    int port=Integer.parseInt(portnumber);
         try{
             iRMIImpl test=new iRMIImpl();
             interfaceRMI stub=(interfaceRMI) UnicastRemoteObject.exportObject
                     (test, 0);
-            Registry reg=LocateRegistry.createRegistry(2000);
+            Registry reg=LocateRegistry.createRegistry(port);
             reg.rebind("server", stub);
             System.out.println("Server is online....");
-            
             }
         catch (Exception e){
             System.err.println("Server problem: "+ e.toString());
