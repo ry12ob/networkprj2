@@ -4,24 +4,53 @@
  */
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.io.*;
+import java.net.*;
 /**
  *
  * @author James
  */
 public class clientRMI{
     private static interfaceRMI stub=null;
+    static timeAvg times;
+    static Menu mnu = new Menu();
+    static int ThreadNum = 0;
+    public static String ipAddress=null;
+    public static int port=0;
     
-    public static void main(String[] args){
+    public static void main(String[] args)throws IOException{
+    ipAddress = args[0];
+    String portnumber=args[1];
+    port=Integer.parseInt(portnumber);
+    BufferedReader stdIn = new BufferedReader(
+        new InputStreamReader(System.in));
         try{
-            String out="blah";
-            Registry reg=LocateRegistry.getRegistry("localhost",2000);
+		  		System.out.println(ipAddress);
+            Registry reg=LocateRegistry.getRegistry(ipAddress,port);
             stub=(interfaceRMI) reg.lookup("server");
-            out=stub.doCommand(1);
-            System.out.println(out);
             }
         catch (Exception e){
             System.err.println("Client problem: "+e.toString());
             e.printStackTrace();
+            }
+        String userInput;
+        mnu.displayMenu();
+        while ((userInput = stdIn.readLine()) != null) {
+            if (mnu.validChoice(mnu.getReqNumber(userInput))) {
+                ThreadNum = mnu.getThreadNum();
+                times=new timeAvg(ThreadNum);
+                
+                //Spawn threads
+                for (int x = 0; x < ThreadNum; x++) {
+                    ThreadClient clientStub=new ThreadClient(stub, 
+                            mnu.getReqNumber(userInput));
+                    clientStub.start();
+                    }
+                while(times.getFull())
+                    ;
+                times.display();
+                }
+                mnu.displayMenu();
             }
         }
     }
