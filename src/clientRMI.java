@@ -6,6 +6,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.io.*;
 import java.net.*;
+import java.rmi.RMISecurityManager;
 /**
  *
  * @author James
@@ -25,7 +26,7 @@ public class clientRMI{
     BufferedReader stdIn = new BufferedReader(
         new InputStreamReader(System.in));
         try{
-		  		System.out.println(ipAddress);
+            System.setSecurityManager(new RMISecurityManager());
             Registry reg=LocateRegistry.getRegistry(ipAddress,port);
             stub=(interfaceRMI) reg.lookup("server");
             }

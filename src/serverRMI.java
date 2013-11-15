@@ -15,6 +15,7 @@ public class serverRMI{
     String portnumber=args[0];
     int port=Integer.parseInt(portnumber);
         try{
+            System.setSecurityManager(new RMISecurityManager());
             iRMIImpl test=new iRMIImpl();
             interfaceRMI stub=(interfaceRMI) UnicastRemoteObject.exportObject
                     (test, 0);
