@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.lang.StringBuilder;
 
@@ -8,20 +7,17 @@ import java.lang.StringBuilder;
  * @author Chris Koivu
  */
 public class Menu {
-  
+ 
    /** request number for function desired */
-   private int reqNumber = 0;     
+   private int reqNumber = 0;    
    /** Buffered reader br */
-   BufferedReader br;   
+   BufferedReader br;  
    
    /** empty class constructor */
    public void Menu(){
        
    }
-      
-    
-   
-      
+
       /**
        * this method displays a user menu
        * @return none
@@ -37,9 +33,9 @@ public class Menu {
                 String.format("%13s","7. Quit\n")+
                 "Enter Selection:   ";
         StringBuilder builderS=new StringBuilder(menuS);
-        System.out.println(builderS); 
+        System.out.println(builderS);
       }// end displayMenu
-      
+     
       /**
        * this method reads user entry from the keyboard
        * @return integer representing the menu option
@@ -49,10 +45,10 @@ public class Menu {
          String s = getString();
          reqNumber = Integer.parseInt(s);
        }// end getEntry method
-      
+     
       /**
        * this method is an accessor method for the
-       * reqNumber variable 
+       * reqNumber variable
        * @return integer
        */
       public int getReqNumber(String s) throws NumberFormatException{  
@@ -61,19 +57,19 @@ public class Menu {
              reqNum = Integer.parseInt(s);
           }
           catch(NumberFormatException e){
-             System.out.println("## INVALID MENU SELECTION ##");             
+             System.out.println("## INVALID MENU SELECTION ##");            
           }
           return reqNum;        
       }// end getreqNumber method
-      
+     
       public boolean validChoice (int selNumber){            
           if (selNumber > 0 && selNumber < 8)
              return true;
           System.out.println("## INVALID ENTRY. PLEASE TRY AGAIN ##");
           return false;
-      }// end validChoice method   
-        
-      
+      }// end validChoice method  
+       
+     
       public String getString() throws IOException
       {
          InputStreamReader isr = new InputStreamReader(System.in);
@@ -81,7 +77,7 @@ public class Menu {
          String s = br2.readLine();
          return s;
       }
-      
+     
       public int getThreadNum() throws IOException{
         System.out.println("Enter the number of threads for this action:\n");
         String s=getString();
@@ -93,5 +89,6 @@ public class Menu {
             x=Integer.parseInt(s);
             }
         return x;
-        }   
+        }  
     }//end Menu class
+

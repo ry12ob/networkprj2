@@ -1,4 +1,3 @@
-
 import java.net.*;
 import java.io.*;
 import java.rmi.RemoteException;
@@ -14,7 +13,7 @@ public class ThreadClient extends Thread {
    //private Boolean active;
    private int UserNum;
    Menu mnu = new Menu();    
-  
+ 
            
    ThreadClient(interfaceRMI stubin, int userChoice) {
      stub=stubin;
@@ -31,10 +30,11 @@ public class ThreadClient extends Thread {
             time=Stop-Start;
             System.out.println(output);
             System.out.println("Time: "+time);
-            //active = true;
-        } catch (RemoteException e) {
+       } catch (RemoteException e) {
             System.err.println("Don't know about stub");
+            e.printStackTrace();
             System.exit(1);
         }
     }
 }
+
