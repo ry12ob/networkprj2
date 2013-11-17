@@ -3,8 +3,7 @@ import java.lang.StringBuilder;
 
 
 /**
- * This class presents a user menu for input
- * @author Chris Koivu
+ * This class handels an object that has methods to display a menu.
  */
 public class Menu {
  

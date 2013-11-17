@@ -1,20 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 import java.rmi.*;
 import java.io.*;
 import java.net.*;
-/**
- *
- * @author James
- */
+
 public class iRMIImpl  implements interfaceRMI{
-        public String doCommand(int cin) throws RemoteException{
-                try{
-                        String com=cin+"";
-                        String inputString=null;
-                        String outputString="";
+    public String doCommand(int cin) throws RemoteException{
+        System.out.println("Skeleton spawning new thread to do"
+                + " clients command...");
+        try{
+        String com=cin+"";
+        String inputString=null;
+        String outputString="";
         if(com.equals("1"))
                 com="date";
         if(com.equals("2"))
