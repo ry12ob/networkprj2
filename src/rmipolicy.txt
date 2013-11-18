@@ -1,3 +1,0 @@
-grant {
-        permission java.net.SocketPermission "192.168.100.84", "accept,connect";
-};

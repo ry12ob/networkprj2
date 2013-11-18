@@ -1,4 +1,7 @@
-
+/*
+This is the implementation of the interface class and describes the do command
+that the server's skeleton contains. The client threads call the remote object's version of this command.
+*/
 import java.rmi.*;
 import java.io.*;
 import java.net.*;

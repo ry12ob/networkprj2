@@ -1,4 +1,10 @@
-
+/*
+This program is the Server main for the RMI project. It creates an object of an 
+implementation of a interface. This implementation has a method that takes a number as a command
+and returns the info from the server to the client that asked. The server makes this object a remote object (the skeleton)
+called stub and binds it to a registry on a given port (given in the run arguments). This stub is the basis of RMI and creates 
+threads in the background whenever a client invokes a method.
+*/
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.Registry;

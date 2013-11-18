@@ -1,3 +1,11 @@
+/*
+This class describes the creation and run of the threads used by 
+clientRMI. The thread recrods the start time, calls the doCommand using 
+provided remote object and user choice recording the response from the command
+in the output string, records the end time after the info has come back, 
+calculates the total time in milliseconds that has elapsed, prints the output,
+and then adds the time calculated to the times object in clientRMI
+*/
 import java.net.*;
 import java.io.*;
 import java.rmi.RemoteException;
