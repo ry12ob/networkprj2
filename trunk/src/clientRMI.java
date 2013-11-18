@@ -1,4 +1,13 @@
-
+/*
+This program is the client main of the RMI project. It finds the Registry of the serverRMI
+using the inputted ip address and port number(inputed as run arguments) and creates a object to hold
+the server's remote object. It then uses a menu to get the user's command and number of threads to ask that command.
+The threads use the remote object called stub to ask the server's skeleton to invoke its command method using the number 
+of the command selected. The threadclient class handles the thread and its run process. At the end of its run it 
+adds the time it took to get the command from the skeleton to the times object in clientRMI. Once all those times 
+have come in it displays the average time it took in milliseconds. It then resdisplays the menu for the user to choose another
+command or exit.
+*/
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.io.*;

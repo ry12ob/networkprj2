@@ -1,18 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+This interface describes the doCommand method that should take in a command integer
+and returns a string which is the response to the command.
+*/
 import java.rmi.*;
-/**
- *
- * @author James
- */
+
 public interface interfaceRMI extends Remote{
-    /*public String getDate();
-         public String getuptime();
-         public String getfree();
-         public String getnetstat();
-         public String getwho();
-         public String getpsde();*/
-         public String doCommand(int cin) throws RemoteException;
+    public String doCommand(int cin) throws RemoteException;
     }
